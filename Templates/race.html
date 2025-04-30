@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="form">
+          <div class="tooltip">
+            <img class="tooltip-icon" src="{{ url_for('static', filename='tooltip-icon.png') }}" />
+            <span class="tooltiptext">Need More Information?<br>Follow the link below to learn more about the different races.<br>http://dndroll.wikidot.com/races</span>
+          </div>
+          <h1>Select Your Race</h1>
+        <form id = 'race-form' method="POST">
+            {% for race in races %}
+                <div class="race-option">
+                    <label>
+                        <input type="radio" name="race" value="{{ race.name }}"
+                            {% if selected == race.name %}checked{% endif %}>
+                        <strong>{{ race.name }}</strong>
+                    </label>
+                    <div class="description">{{ race.description }}</div>
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+
+        <div class="back-button">
+          <a href="/">Go Back</a>
+        </div>
+        <div>
+            <input class="next-button" type="submit" form="race-form" value="Go Forth"/>
+        </div>
+        <div class="start-over">
+          <a onclick="confirm_start_over()" href="/">Start Over</a>
+         <script>
+          function confirm_start_over() {
+            let text;
+            if (confirm("Are you sure you want to start over?\nAll your previous selections will be lost.") == true) {
+              window.location.href = "/";
+            }
+          }
+         </script>
+        </div>
+{% endblock %}

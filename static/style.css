@@ -1,0 +1,287 @@
+body {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+@font-face {
+    font-family: GothicByte;
+    src: url(GothicByte.ttf);
+}
+
+.background {
+  background-image: url(./background-image.png);
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 1500px;
+  height: 700px;
+  position: relative;
+}
+
+.logo-header {
+  width: 100%;
+  height: 140px;
+}
+
+.logo {
+  position: absolute;
+  width: 448px;
+  height: 140px;
+  top: 28px;
+  left: 50px;
+}
+
+.text-wrapper {
+  position: absolute;
+  top: -6px;
+  left: -5px;
+  text-shadow: 0px 21px 4px #00000040;
+  -webkit-text-stroke: 5px #000000;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: var(--variable-collection-text-fill-color);
+  font-size: 128px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  box-shadow: var(--drop-shadow);
+}
+
+.create-new-button {
+  position: absolute;
+  top: 564px;
+  left: 643px;
+  width: 226px;
+  height: 75px;
+  padding: 8px 25px 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 28px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #F8EBCA;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  box-shadow: 0 9px #666;
+}
+
+.create-new-button:hover {
+  background-color: #B9A36A
+}
+
+.create-new-button:active {
+  background-color: #B9A36A;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
+}
+
+a {
+  color: inherit;
+}
+
+.welcome-text {
+  position: absolute;
+  width: 589px;
+  height: 341px;
+  top: 214px;
+  left: 455px;
+}
+
+.back-button {
+  position: absolute;
+  top: 520px;
+  left: 490px;
+  width: 226px;
+  height: 75px;
+  padding: 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #F8EBCA;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+
+.back-button:hover {
+  background-color: #B9A36A
+}
+
+.back-button:active {
+  background-color: #B9A36A;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
+}
+
+.next-button {
+  position: absolute;
+  top: 520px;
+  left: 750px;
+  width: 226px;
+  height: 75px;
+  padding: 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #F8EBCA;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+
+.next-button:hover {
+  background-color: #B9A36A
+}
+
+.next-button:active {
+  background-color: #B9A36A;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
+}
+
+
+.start-over {
+  position: absolute;
+  top: 620px;
+  left: 650px;
+  text-align: center;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #F8EBCA;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.start-over:hover {
+  text-decoration: underline;
+}
+
+.start-over:active {
+  transform: translateY(4px);
+}
+
+.form {
+  position: absolute;
+  left: 30.5%;
+}
+
+form {
+  overflow-y: scroll;
+  width: 580px;
+  height: 300px;
+}
+
+.tooltip-icon {
+  width: 35px;
+  height: 35px
+}
+
+.tooltip {
+  float: right;
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  font-family: Helvetica;
+  background-color: #F8EBCA;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -125px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #F8EBCA transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+h1 {
+  text-align: center;
+  top: 165px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #F8EBCA;
+  font-size: 60px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.race-option {
+  text-align: left;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-radius:8px;
+  border: 2px solid;
+  border-color: #000000;
+  background: #F8EBCA;
+}
+
+.race-option input[type="radio"] {
+    margin-right: 0.5em;
+}
+
+.description {
+  text-align: left;
+  font-family: Helvetica;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  color: #555;
+  margin-left: 2 em;
+}

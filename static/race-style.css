@@ -6,12 +6,17 @@
   width: 100%;
 }
 
+@font-face {
+    font-family: GothicByte;
+    src: url(GothicByte.ttf);
+}
+
 .race-selection-page .div {
   background-image: url(./img/race-selection-page.png);
   background-size: cover;
   background-position: 50% 50%;
-  width: 1280px;
-  height: 832px;
+  width: 1500px;
+  height: 700px;
   position: relative;
 }
 
@@ -33,7 +38,7 @@
   position: absolute;
   height: 52px;
   top: 15px;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: #000000;
   font-size: 48px;
@@ -61,7 +66,7 @@
   position: absolute;
   height: 52px;
   top: 15px;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: #000000;
   font-size: 48px;
@@ -85,7 +90,7 @@
   height: 53px;
   top: -1px;
   left: 0;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: var(--variable-collection-text-fill-color);
   font-size: 48px;
@@ -119,7 +124,7 @@
   height: 67px;
   top: 0;
   left: 0;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: #000000;
   font-size: 60px;
@@ -161,7 +166,7 @@
   height: 35px;
   top: 0;
   left: 10px;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: #000000;
   font-size: 26px;
@@ -265,7 +270,7 @@
   left: -5px;
   text-shadow: 0px 21px 4px #00000040;
   -webkit-text-stroke: 5px #000000;
-  font-family: "GothicByte-Medium", Helvetica;
+  font-family: "GothicByte", Helvetica;
   font-weight: 500;
   color: var(--variable-collection-text-fill-color);
   font-size: 128px;
