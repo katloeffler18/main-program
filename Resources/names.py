@@ -1,5 +1,20 @@
 names = [
     'Durgan the Bonebreaker',
     'Willy the Wise',
-    'Gronk the Dim'
+    'Gronk the Dim',
+    'Philomena the Ashborn',
+    'Tyronius the Pious',
+    'Veyra the Whispering',
+    'Mordyn the Starbound',
+    'Sylvara the Moonshaped',
+    'Drazak the Hollow',
+    'Nyx the Soulpiercer',
+    'Varrek the Bloodshorn',
+    'Hrogar the Stormborn',
+    'Yagra the Beastmother',
+    'Thurgan the Wyrmslayer',
+    'Rogha the Ironsnout',
+    'Fizzik the Rarely Sober',
+    'Bloop the Brave-ish',
+    'Tilda the Potato-Blessed'
 ]

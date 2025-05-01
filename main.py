@@ -37,7 +37,7 @@ def class_page():
 def name():
     name_flag = request.args.get('generateName')
     if name_flag:
-        return render_template('name.html', name=names[random.randint(0, 2)], generate_name=True)
+        return render_template('name.html', name=names[random.randint(0, 17)], generate_name=True)
     return render_template('name.html')
 
 
@@ -51,3 +51,7 @@ def stat_roll():
         return render_template('stat-roll.html', rand_list=rand_list, generate_stat=True)
     return render_template('stat-roll.html')
 
+
+@app.route("/stats")
+def stats():
+    return render_template('stats.html')

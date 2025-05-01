@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="back-button">
+            <a href="/stat-roll">Go Back</a>
+        </div>
+        <div>
+            <a class="next-button" href="/character">Go Forth</a>
+        </div>
+        <div class="start-over">
+          <a onclick="confirm_start_over()">Start Over</a>
+         <script>
+          function confirm_start_over() {
+            let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
+            if (confirm(text)) {
+              window.location.href = "/";
+            }
+          }
+         </script>
+        </div>
+
+{% endblock %}
