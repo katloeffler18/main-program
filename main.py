@@ -37,6 +37,17 @@ def class_page():
 def name():
     name_flag = request.args.get('generateName')
     if name_flag:
-        return render_template('name.html', name=names[random.randint(0, 2)])
+        return render_template('name.html', name=names[random.randint(0, 2)], generate_name=True)
     return render_template('name.html')
+
+
+@app.route("/stat-roll")
+def stat_roll():
+    stat_flag = request.args.get('generateStat')
+    rand_list = []
+    for num in range(6):
+        rand_list.append(random.randint(1, 18))
+    if stat_flag:
+        return render_template('stat-roll.html', rand_list=rand_list, generate_stat=True)
+    return render_template('stat-roll.html')
 

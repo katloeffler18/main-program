@@ -3,7 +3,11 @@
 {% block content %}
 
         <div class="name-box">
-            {{ name }}
+            {% if generate_name %}
+            <span class="name-span">{{ name }}</span>
+            {% else %}
+            <span id="name-intro" class="name-intro">Summon your character’s name by pressing the button below</span>
+            {% endif %}
         </div>
 
         <div class="name-form">
@@ -17,7 +21,7 @@
             <a class="next-button" href="/stat-roll">Go Forth</a>
         </div>
         <div class="start-over">
-          <a onclick="confirm_start_over()" href="/">Start Over</a>
+          <a onclick="confirm_start_over()" >Start Over</a>
          <script>
           function confirm_start_over() {
             let text = "Are you sure you want to start over?\nAll your previous selections will be lost."

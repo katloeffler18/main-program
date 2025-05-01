@@ -290,14 +290,29 @@ h1 {
   width: 580px;
   height: 225px;
   margin: auto;
+  display: table;
   text-align: center;
   font-family: "GothicByte";
+  font-weight: 500;
+  letter-spacing: 0;
   color: black;
   border-radius:15px;
   border: 2px solid;
   border-color: #000000;
   background: #F8EBCA;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.name-span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 85px;
+}
+
+.name-intro {
+  font-size: 40px;
+  display: table-cell;
+  vertical-align: middle;
 }
 
 .name-form {
@@ -332,7 +347,74 @@ h1 {
 }
 
 .name-button:active {
+  background-color: #586D78;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
+}
+
+.stat-box {
+  width: 750px;
+  height: 125px;
+  margin: auto;
+  display: table;
+  text-align: center;
+  font-family: "GothicByte";
+  font-weight: 500;
+  letter-spacing: 0;
+  color: black;
+  border-radius:15px;
+  border: 2px solid;
+  border-color: #000000;
+  background: #F8EBCA;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.stat-span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 60px;
+}
+
+.stat-intro {
+  font-size: 40px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.stat-form {
+  margin: auto;
+  width: 320px;
+  height: 75px;
+}
+
+.stat-button {
+  width: 320px;
+  height: 75px;
+  padding: 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
   background-color: #9CACB4;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+.stat-button:hover {
+  background-color: #586D78
+}
+
+.stat-button:active {
+  background-color: #586D78;
   box-shadow: 0 5px #404040;
   transform: translateY(4px);
   color: #000000

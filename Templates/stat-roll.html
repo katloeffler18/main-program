@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="stat-box">
+            {% if generate_stat %}
+                {% for stat in rand_list %}
+                    <span class="stat-span">{{ stat }}</span>
+                {% endfor %}
+            {% else %}
+            <span id="stat-intro" class="stat-intro">Summon your character’s stat values by pressing the button below</span>
+            {% endif %}
+        </div>
+
+        <div class="stat-form">
+            <input class="stat-button" type="submit" value="Roll The Dice" onclick="generate_stats()"/>
+        </div>
+
+        <div class="back-button">
+            <a href="/name">Go Back</a>
+        </div>
+        <div>
+            <a class="next-button" href="/stats">Go Forth</a>
+        </div>
+        <div class="start-over">
+          <a onclick="confirm_start_over()">Start Over</a>
+         <script>
+          function confirm_start_over() {
+            let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
+            if (confirm(text)) {
+              window.location.href = "/";
+            }
+          }
+
+          function generate_stats() {
+            window.location.href = "stat-roll?generateStat=True"
+          }
+         </script>
+        </div>
+
+{% endblock %}
