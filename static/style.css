@@ -255,7 +255,7 @@ h1 {
   line-height: normal;
 }
 
-.race-option {
+.form-option {
   text-align: left;
   font-family: "GothicByte", Helvetica;
   font-weight: 500;
@@ -284,4 +284,56 @@ h1 {
   line-height: normal;
   color: #555;
   margin-left: 2 em;
+}
+
+.name-box {
+  width: 580px;
+  height: 225px;
+  margin: auto;
+  text-align: center;
+  font-family: "GothicByte";
+  color: black;
+  border-radius:15px;
+  border: 2px solid;
+  border-color: #000000;
+  background: #F8EBCA;
+  margin-bottom: 10px;
+}
+
+.name-form {
+  margin: auto;
+  width: 320px;
+  height: 75px;
+}
+
+.name-button {
+  width: 320px;
+  height: 75px;
+  padding: 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #9CACB4;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+.name-button:hover {
+  background-color: #586D78
+}
+
+.name-button:active {
+  background-color: #9CACB4;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
 }

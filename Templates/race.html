@@ -10,7 +10,7 @@
           <h1>Select Your Race</h1>
         <form id = 'race-form' method="POST">
             {% for race in races %}
-                <div class="race-option">
+                <div class="form-option">
                     <label>
                         <input type="radio" name="race" value="{{ race.name }}"
                             {% if selected == race.name %}checked{% endif %}>
@@ -32,8 +32,8 @@
           <a onclick="confirm_start_over()" href="/">Start Over</a>
          <script>
           function confirm_start_over() {
-            let text;
-            if (confirm("Are you sure you want to start over?\nAll your previous selections will be lost.") == true) {
+            let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
+            if (confirm(text)) {
               window.location.href = "/";
             }
           }

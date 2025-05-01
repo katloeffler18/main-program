@@ -1,6 +1,9 @@
+import random
+
 from flask import Flask, render_template, request, redirect
 from Resources.races import races
 from Resources.classes import classes
+from Resources.names import names
 
 app = Flask(__name__)
 
@@ -32,4 +35,8 @@ def class_page():
 
 @app.route("/name")
 def name():
+    name_flag = request.args.get('generateName')
+    if name_flag:
+        return render_template('name.html', name=names[random.randint(0, 2)])
     return render_template('name.html')
+
