@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Character Sheet</h1>
+<div class="character-sheet">
+        <p class="list-line"><strong>Name:</strong> {{ character.name }}</p>
+        <p class="list-line"><strong>Race:</strong> {{ character.race }}</p>
+        <p class="list-line"><strong>Class:</strong> {{ character.class }}</p>
+
+        <h2>Ability Scores:</h2>
+        <div class="stats">
+            {% for stat, value in character.stats.items() %}
+                <div class="stat">
+                    <span class="stat-name">{{ stat }}</span>
+                    <span class="stat-value">{{ value }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="start-over">
+          <a onclick="confirm_start_over()">Start Over</a>
+         <script>
+          function confirm_start_over() {
+            let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
+            if (confirm(text)) {
+              window.location.href = "/";
+            }
+          }
+         </script>
+    </div>
+
+{% endblock %}

@@ -4,12 +4,9 @@ from Resources.races import races
 from Resources.classes import classes
 from Resources.names import names
 from Resources.character import character_data
-import os
 
-SECRET_KEY = os.urandom(32)
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = SECRET_KEY
 
 
 @app.route("/")
@@ -57,14 +54,11 @@ def stat_roll():
 @app.route("/stats", methods=['GET', 'POST'])
 def stats():
     options = [14, 10, 8, 12, 6, 15]
-    selected_value = 'Select a value'
-
     if request.method == 'POST':
-        selected_value = request.form['stat_dropdown']
-
-    return render_template('stats.html', options=options, selected_value=selected_value)
+        return redirect('http://127.0.0.1:5000/character')
+    return render_template('stats.html', options=options)
 
 
 @app.route('/character')
 def character():
-    return render_template('character_sheet.html', character=character_data)
+    return render_template('character.html', character=character_data)
