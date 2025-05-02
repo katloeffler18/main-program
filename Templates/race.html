@@ -5,10 +5,10 @@
     <div class="form">
           <div class="tooltip">
             <img class="tooltip-icon" src="{{ url_for('static', filename='tooltip-icon.png') }}" />
-            <span class="tooltiptext">Need More Information?<br>Follow the link below to learn more about the different races.<br>http://dndroll.wikidot.com/races</span>
+            <span class="tooltiptext">Need More Information? Follow <a href="http://dndroll.wikidot.com/races">this link</a> to learn more about the different races.</span>
           </div>
           <h1>Select Your Race</h1>
-        <form id = 'race-form' method="POST">
+        <form id = 'radio-form' method="POST">
             {% for race in races %}
                 <div class="form-option">
                     <label>
@@ -26,7 +26,7 @@
           <a href="/">Go Back</a>
         </div>
         <div>
-            <input class="next-button" type="submit" form="race-form" value="Go Forth"/>
+            <input class="next-button" type="submit" form="radio-form" value="Go Forth"/>
         </div>
         <div class="start-over">
           <a onclick="confirm_start_over()">Start Over</a>

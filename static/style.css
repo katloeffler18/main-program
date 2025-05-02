@@ -176,7 +176,7 @@ a {
   left: 29%;
 }
 
-form {
+#radio-form {
   overflow-y: scroll;
   width: 580px;
   height: 300px;
@@ -206,9 +206,13 @@ form {
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  bottom: 150%;
+  bottom: 120%;
   left: 50%;
   margin-left: -125px;
+}
+
+.tooltiptext a{
+  text-decoration: underline;
 }
 
 .tooltip .tooltiptext::after {
@@ -364,12 +368,6 @@ h1 {
   vertical-align: middle;
 }
 
-.stat-form {
-  margin: auto;
-  width: 320px;
-  height: 75px;
-}
-
 .stat-button {
   width: 320px;
   height: 75px;
@@ -400,4 +398,54 @@ h1 {
   box-shadow: 0 5px #404040;
   transform: translateY(4px);
   color: #000000
+}
+
+.stat-roll-form {
+  margin: auto;
+  width: 320px;
+  height: 75px;
+  }
+
+.stat-label{
+  float: left;
+  padding-top: 5px;
+}
+
+.stat-dropdown {
+  font-family: "GothicByte";
+  text-align: center;
+  font-size: 18px;
+  width: 150px;
+  background: #9CACB4;
+  border: 2px solid;
+}
+
+.stat-form {
+  display: table;
+  margin: auto;
+  text-align: right;
+  width: 670px;
+  height: 300px;
+  font-family: "GothicByte";
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 0;
+  color: black;
+  border-radius:15px;
+  border: 3px solid;
+  border-color: #000000;
+  background: #F8EBCA;
+  padding: 20px 30px 5px 30px;
+}
+
+
+.stat_div {
+  margin: -5px;
+  text-align: right;
+}
+
+.stat-tooltip-and-form {
+  position: absolute;
+  left: 380px;
+  width: 670px;
 }

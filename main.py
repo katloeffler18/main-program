@@ -1,11 +1,15 @@
 import random
-
 from flask import Flask, render_template, request, redirect
 from Resources.races import races
 from Resources.classes import classes
 from Resources.names import names
+from Resources.character import character_data
+import os
+
+SECRET_KEY = os.urandom(32)
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 
 @app.route("/")
@@ -18,7 +22,6 @@ def race():
     selected_race = None
     if request.method == 'POST':
         selected_race = request.form.get('race')
-        print(selected_race)
         return redirect('http://127.0.0.1:5000/class')
     return render_template('race.html', races=races, selected=selected_race)
 
@@ -28,12 +31,11 @@ def class_page():
     selected_class = None
     if request.method == 'POST':
         selected_class = request.form.get('class')
-        print(selected_class)
         return redirect('http://127.0.0.1:5000/name')
     return render_template('class.html', classes=classes, selected=selected_class)
 
 
-@app.route("/name")
+@app.route("/name", methods=['GET', 'POST'])
 def name():
     name_flag = request.args.get('generateName')
     if name_flag:
@@ -52,6 +54,17 @@ def stat_roll():
     return render_template('stat-roll.html')
 
 
-@app.route("/stats")
+@app.route("/stats", methods=['GET', 'POST'])
 def stats():
-    return render_template('stats.html')
+    options = [14, 10, 8, 12, 6, 15]
+    selected_value = 'Select a value'
+
+    if request.method == 'POST':
+        selected_value = request.form['stat_dropdown']
+
+    return render_template('stats.html', options=options, selected_value=selected_value)
+
+
+@app.route('/character')
+def character():
+    return render_template('character_sheet.html', character=character_data)

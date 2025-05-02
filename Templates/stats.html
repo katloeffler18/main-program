@@ -1,12 +1,79 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+<div class="stat-tooltip-and-form">
+    <div class="tooltip">
+      <img class="tooltip-icon" src="{{ url_for('static', filename='tooltip-icon.png') }}" />
+      <span class="tooltiptext">Need More Information? Follow <a href="https://roll20.net/compendium/dnd5e/Ability%20Scores#content">this link</a> to learn more about the different abilities.</span>
+    </div>
+    <h1>Assign Your Abilities</h1>
+    <form class="stat-form" id="stat-form" method="POST">
+        <div class="stat_div">
+          <label class="stat-label" for="str_dropdown">Strength - physical power</label>
+          <select class="stat-dropdown" name="str_dropdown" id="str_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        <div class="stat_div">
+          <label class="stat-label" for="dex_dropdown">Dexterity - agility</label>
+          <select class="stat-dropdown" name="dex_dropdown" id="dex_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        <div class="stat_div">
+          <label class="stat-label" for="con_dropdown">Constitution - endurance</label>
+          <select class="stat-dropdown" name="con_dropdown" id="con_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        <div class="stat_div">
+          <label class="stat-label" for="int_dropdown">Intelligence - reasoning and memory</label>
+          <select class="stat-dropdown"  name="int_dropdown" id="int_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        <div class="stat_div">
+          <label class="stat-label" for="wis_dropdown">Wisdom - perception and insight</label>
+          <select class="stat-dropdown" name="wis_dropdown" id="wis_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <br/>
+        <div class="stat_div">
+          <label class="stat-label" for="cha_dropdown">Charisma - force of personality</label>
+          <select class="stat-dropdown" name="cha_dropdown" id="cha_dropdown">
+            {% for option in options %}
+            <option value="" selected disabled hidden>Select a value</option>
+            <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
+            {% endfor %}
+          </select>
+        </div>
+    </form>
+</div>
         <div class="back-button">
             <a href="/stat-roll">Go Back</a>
         </div>
         <div>
-            <a class="next-button" href="/character">Go Forth</a>
+            <input class="next-button" type="submit" form="stat-form" value="Go Forth"/>
         </div>
         <div class="start-over">
           <a onclick="confirm_start_over()">Start Over</a>
