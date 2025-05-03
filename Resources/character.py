@@ -3,11 +3,11 @@ character_data = {
     'race': 'Dwarf',
     'class': 'Barbarian',
     'stats': {
-        'STR': 12,
-        'DEX': 18,
-        'CON': 14,
-        'INT': 10,
-        'WIS': 16,
-        'CHA': 11
+        'STR': 14,
+        'DEX': 10,
+        'CON': 8,
+        'INT': 12,
+        'WIS': 6,
+        'CHA': 15
     },
 }

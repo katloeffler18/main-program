@@ -3,23 +3,25 @@
 {% block content %}
 
         <div class="name-box">
-            {% if generate_name %}
+            {% if name %}
             <span class="name-span">{{ name }}</span>
             {% else %}
             <span id="name-intro" class="name-intro">Summon your character’s name by pressing the button below</span>
             {% endif %}
         </div>
 
-        <div class="name-form">
-            <input class="name-button" type="submit" value="Conjure Name" onclick="generate_name()"/>
-        </div>
+        <form class="name-button-position" action="/generate-name" method="post">
+          <button class="name-button" type="submit">Conjure Name</button>
+        </form>
+
+          <form action="/save-name" method="post" onsubmit="handleNextClick(event)">
+            <button class="next-button" type="submit" >Go Forth</button>
+          </form>
 
         <div class="back-button">
             <a href="/class">Go Back</a>
         </div>
-        <div>
-            <a class="next-button" href="/stat-roll">Go Forth</a>
-        </div>
+
         <div class="start-over">
           <a onclick="confirm_start_over()" >Start Over</a>
          <script>
@@ -29,8 +31,12 @@
               window.location.href = "/";
             }
           }
-          function generate_name() {
-            window.location.href = "name?generateName=True"
+          function handleNextClick(event) {
+            const namePresent = "{{ name }}" !== "";
+            if (!namePresent) {
+              event.preventDefault();
+              alert("Please generate a name first before proceeding.");
+            }
           }
          </script>
         </div>

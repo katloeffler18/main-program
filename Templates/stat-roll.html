@@ -2,26 +2,28 @@
 
 {% block content %}
 
-        <div class="stat-box">
-            {% if generate_stat %}
-                {% for stat in rand_list %}
-                    <span class="stat-span">{{ stat }}</span>
-                {% endfor %}
-            {% else %}
-            <span id="stat-intro" class="stat-intro">Summon your character’s stat values by pressing the button below</span>
-            {% endif %}
-        </div>
+    <div class="stat-box">
+        {% if stats %}
+            {% for stat in stats %}
+                <span class="stat-span">{{ stat }}</span>
+            {% endfor %}
+        {% else %}
+        <span id="stat-intro" class="stat-intro">Summon your character’s stat values by pressing the button below</span>
+        {% endif %}
+    </div>
 
-        <div class="stat-roll-form">
-            <input class="stat-button" type="submit" value="Roll The Dice" onclick="generate_stats()"/>
-        </div>
+    <form class="stat-roll-form" action="/generate-stats" method="post">
+        <button class="stat-button" type="submit">Roll The Dice</button>
+    </form>
+
+    <form action="/save-stats" method="post" onsubmit="handleNextClick(event)">
+        <button class="next-button" type="submit" >Go Forth</button>
+    </form>
 
         <div class="back-button">
             <a href="/name">Go Back</a>
         </div>
-        <div>
-            <a class="next-button" href="/stats">Go Forth</a>
-        </div>
+
         <div class="start-over">
           <a onclick="confirm_start_over()">Start Over</a>
          <script>
@@ -32,8 +34,12 @@
             }
           }
 
-          function generate_stats() {
-            window.location.href = "stat-roll?generateStat=True"
+          function handleNextClick(event) {
+            const statsPresent = "{{ stats }}" !== [];
+            if (!statsPresent) {
+              event.preventDefault();
+              alert("Please generate stat values first before proceeding.");
+            }
           }
          </script>
         </div>

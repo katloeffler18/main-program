@@ -301,7 +301,7 @@ h1 {
   vertical-align: middle;
 }
 
-.name-form {
+.name-button-position {
   margin: auto;
   width: 320px;
   height: 75px;
@@ -390,7 +390,7 @@ h1 {
 }
 
 .stat-button:hover {
-  background-color: #586D78
+  background-color: #586D78;
 }
 
 .stat-button:active {
@@ -417,7 +417,8 @@ h1 {
   font-size: 18px;
   width: 150px;
   background: #9CACB4;
-  border: 2px solid;
+  border: 1px solid;
+  border-radius: 5px;
 }
 
 .stat-form {
@@ -428,7 +429,7 @@ h1 {
   height: 300px;
   font-family: "GothicByte";
   font-weight: 500;
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: 0;
   color: black;
   border-radius:15px;
@@ -505,4 +506,30 @@ h2 {
   padding: 35px 0 0 0;
 }
 
+.assign-button {
+  position: absolute;
+  width: 175px;
+  top: 325px;
+  left: 245px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: black;
+  font-size: 20px;
+  letter-spacing: 0;
+  background-color: #9CACB4;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 5px;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
 
+.assign-button:hover {
+  background-color: #586D78;
+}
+
+.assign-button:active {
+  transform: translateY(4px);
+}

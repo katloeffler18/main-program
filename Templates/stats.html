@@ -9,7 +9,7 @@
     <h1>Assign Your Abilities</h1>
     <form class="stat-form" id="stat-form" method="POST">
         <div class="stat_div">
-          <label class="stat-label" for="str_dropdown">Strength - physical power</label>
+          <label class="stat-label" for="str_dropdown"><u>Strength</u> - physical power</label>
           <select class="stat-dropdown" name="str_dropdown" id="str_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -19,7 +19,7 @@
         </div>
         <br/>
         <div class="stat_div">
-          <label class="stat-label" for="dex_dropdown">Dexterity - agility</label>
+          <label class="stat-label" for="dex_dropdown"><u>Dexterity</u> - agility</label>
           <select class="stat-dropdown" name="dex_dropdown" id="dex_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -29,7 +29,7 @@
         </div>
         <br/>
         <div class="stat_div">
-          <label class="stat-label" for="con_dropdown">Constitution - endurance</label>
+          <label class="stat-label" for="con_dropdown"><u>Constitution</u> - endurance</label>
           <select class="stat-dropdown" name="con_dropdown" id="con_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -39,7 +39,7 @@
         </div>
         <br/>
         <div class="stat_div">
-          <label class="stat-label" for="int_dropdown">Intelligence - reasoning and memory</label>
+          <label class="stat-label" for="int_dropdown"><u>Intelligence</u> - reasoning and memory</label>
           <select class="stat-dropdown"  name="int_dropdown" id="int_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -49,7 +49,7 @@
         </div>
         <br/>
         <div class="stat_div">
-          <label class="stat-label" for="wis_dropdown">Wisdom - perception and insight</label>
+          <label class="stat-label" for="wis_dropdown"><u>Wisdom</u> - perception and insight</label>
           <select class="stat-dropdown" name="wis_dropdown" id="wis_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -59,7 +59,7 @@
         </div>
         <br/>
         <div class="stat_div">
-          <label class="stat-label" for="cha_dropdown">Charisma - force of personality</label>
+          <label class="stat-label" for="cha_dropdown"><u>Charisma</u> - force of personality</label>
           <select class="stat-dropdown" name="cha_dropdown" id="cha_dropdown">
             {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
@@ -67,6 +67,7 @@
             {% endfor %}
           </select>
         </div>
+      <button type="button" class="assign-button" onclick="assignForMe()">Assign for Me</button>
     </form>
 </div>
         <div class="back-button">
@@ -84,7 +85,25 @@
               window.location.href = "/";
             }
           }
+          function assignForMe() {
+
+            const stats = {
+               "str_dropdown": "14",
+               "dex_dropdown": "10",
+               "con_dropdown": "8",
+               "int_dropdown": "12",
+               "wis_dropdown": "6",
+               "cha_dropdown": "15"
+            };
+
+            for (const [id, value] of Object.entries(stats)) {
+                const dropdown = document.getElementById(id);
+                dropdown.value = value;
+            }
+          }
          </script>
         </div>
 
 {% endblock %}
+
+
