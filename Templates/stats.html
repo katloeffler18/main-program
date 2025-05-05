@@ -7,12 +7,12 @@
       <span class="tooltiptext">Need More Information? Follow <a href="https://roll20.net/compendium/dnd5e/Ability%20Scores#content">this link</a> to learn more about the different abilities.</span>
     </div>
     <h1>Assign Your Abilities</h1>
-    <form class="stat-form" id="stat-form" method="POST">
+    <form class="stat-form" id="stat-form" method="POST" action='/submit-stats'>
         <div class="stat_div">
           <label class="stat-label" for="str_dropdown"><u>Strength</u> - physical power</label>
           <select class="stat-dropdown" name="str_dropdown" id="str_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -21,8 +21,8 @@
         <div class="stat_div">
           <label class="stat-label" for="dex_dropdown"><u>Dexterity</u> - agility</label>
           <select class="stat-dropdown" name="dex_dropdown" id="dex_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -31,8 +31,8 @@
         <div class="stat_div">
           <label class="stat-label" for="con_dropdown"><u>Constitution</u> - endurance</label>
           <select class="stat-dropdown" name="con_dropdown" id="con_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -41,8 +41,8 @@
         <div class="stat_div">
           <label class="stat-label" for="int_dropdown"><u>Intelligence</u> - reasoning and memory</label>
           <select class="stat-dropdown"  name="int_dropdown" id="int_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -51,8 +51,8 @@
         <div class="stat_div">
           <label class="stat-label" for="wis_dropdown"><u>Wisdom</u> - perception and insight</label>
           <select class="stat-dropdown" name="wis_dropdown" id="wis_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -61,8 +61,8 @@
         <div class="stat_div">
           <label class="stat-label" for="cha_dropdown"><u>Charisma</u> - force of personality</label>
           <select class="stat-dropdown" name="cha_dropdown" id="cha_dropdown">
-            {% for option in options %}
             <option value="" selected disabled hidden>Select a value</option>
+            {% for option in options %}
             <option value="{{ option }}" {% if option == selected_value %}selected{% endif %}>{{ option }}</option>
             {% endfor %}
           </select>
@@ -86,20 +86,29 @@
             }
           }
           function assignForMe() {
+            const stats = [
+              "str_dropdown",
+              "dex_dropdown",
+              "con_dropdown",
+              "int_dropdown",
+              "wis_dropdown",
+              "cha_dropdown"
+            ];
 
-            const stats = {
-               "str_dropdown": "14",
-               "dex_dropdown": "10",
-               "con_dropdown": "8",
-               "int_dropdown": "12",
-               "wis_dropdown": "6",
-               "cha_dropdown": "15"
-            };
+            const allOptions = Array.from(
+              document.querySelectorAll("#str_dropdown option")
+            )
+            .filter(opt => opt.value !== "")
+            .map(opt => opt.value);
 
-            for (const [id, value] of Object.entries(stats)) {
-                const dropdown = document.getElementById(id);
-                dropdown.value = value;
-            }
+            const shuffled = allOptions.sort(() => 0.5 - Math.random()).slice(0, stats.length);
+
+            stats.forEach((id, index) => {
+              const dropdown = document.getElementById(id);
+              if (dropdown && shuffled[index] !== undefined) {
+                dropdown.value = shuffled[index];
+              }
+            });
           }
          </script>
         </div>

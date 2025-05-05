@@ -8,7 +8,7 @@
             <span class="tooltiptext">Need More Information? Follow <a href="http://dndroll.wikidot.com/races">this link</a> to learn more about the different races.</span>
           </div>
           <h1>Select Your Race</h1>
-        <form id = 'radio-form' method="POST">
+        <form id = 'radio-form' method="POST" onsubmit="handleNextClick(event)">
             {% for race in races %}
                 <div class="form-option">
                     <label>
@@ -19,24 +19,36 @@
                     <div class="description">{{ race.description }}</div>
                 </div>
             {% endfor %}
+
         </form>
     </div>
+
 
         <div class="back-button">
           <a href="/">Go Back</a>
         </div>
+
         <div>
             <input class="next-button" type="submit" form="radio-form" value="Go Forth"/>
         </div>
+
         <div class="start-over">
           <a onclick="confirm_start_over()">Start Over</a>
-         <script>
+        </div>
+        <script>
           function confirm_start_over() {
             let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
             if (confirm(text)) {
               window.location.href = "/";
             }
           }
-         </script>
-        </div>
+          function handleNextClick(event) {
+            const selected = document.querySelector('input[name="race"]:checked');
+            if (!selected) {
+              event.preventDefault();
+              alert("Please select a race before proceeding.");
+            }
+          }
+        </script>
+
 {% endblock %}

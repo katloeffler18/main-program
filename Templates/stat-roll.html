@@ -35,8 +35,8 @@
           }
 
           function handleNextClick(event) {
-            const statsPresent = "{{ stats }}" !== [];
-            if (!statsPresent) {
+            const statSpans = document.querySelectorAll('.stat-span');
+            if (statSpans.length === 0) {
               event.preventDefault();
               alert("Please generate stat values first before proceeding.");
             }
