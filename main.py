@@ -45,8 +45,15 @@ def name():
 
 @app.route('/generate-name', methods=['GET', 'POST'])
 def generate_name():
-    name = random.choice(names)
-    session['current_name'] = name
+    with (open('Characteristics/race.txt', 'r') as char_race, open('Characteristics/class.txt', 'r') as char_class):
+        name_request = {
+            "race": char_race.read(),
+            "class": char_class.read()
+        }
+    response = requests.post('http://127.0.0.1:5002/gen-name', json=name_request)
+    full_name = response.json()
+
+    session['current_name'] = full_name['full_name']
     return redirect(url_for('name'))
 
 
