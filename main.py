@@ -1,13 +1,14 @@
 import random
+import requests
 import os
 from flask import Flask, render_template, request, redirect, session, url_for
 from Resources.races import races
 from Resources.classes import classes
 from Resources.names import names
-from Resources.character import character_data
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
+
 
 @app.route("/")
 def welcome_page():
@@ -67,10 +68,9 @@ def stat_roll():
 
 @app.route('/generate-stats', methods=['GET', 'POST'])
 def generate_stats():
-    stats = []
-    for num in range(6):
-        stats.append(random.randint(1, 18))
-    session['current_stats'] = stats
+    response = requests.post(f'http://127.0.0.1:5001/roll_stats')
+    stats = response.json()
+    session['current_stats'] = stats['stat_values']
     return redirect(url_for('stat_roll'))
 
 
