@@ -1,10 +1,8 @@
-import random
 import requests
 import os
 from flask import Flask, render_template, request, redirect, session, url_for
 from Resources.races import races
 from Resources.classes import classes
-from Resources.names import names
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
@@ -114,19 +112,50 @@ def submit_stats():
     with open('Characteristics/ability-scores.txt', 'w') as file:
         for stat, value in stats.items():
             file.write(f"{stat}:{value}\n")
-    return redirect('http://127.0.0.1:5000/character')
+    return redirect('http://127.0.0.1:5000/personality-traits')
+
+
+@app.route('/personality-traits')
+def traits():
+    traits = session.get('current_traits', '')
+    return render_template('traits.html', traits=traits)
+
+
+@app.route('/generate-traits', methods=['GET', 'POST'])
+def generate_traits():
+    with (open('Characteristics/race.txt', 'r') as race):
+        traits_request = {
+            "race": race.read()
+        }
+    response = requests.post('http://127.0.0.1:5003/gen-traits', json=traits_request)
+    traits = response.json()
+
+    session['current_traits'] = traits['traits']
+    return redirect(url_for('traits'))
+
+
+@app.route('/save-traits', methods=['GET', 'POST'])
+def save_traits():
+    current = session.get('current_traits', None)
+    if current:
+        with open("Characteristics/traits.txt", "w") as file:
+            file.write(current)
+        return redirect('http://127.0.0.1:5000/character')
+    return redirect(url_for('traits'))
 
 
 @app.route('/character')
 def character():
     with (open('Characteristics/race.txt', 'r') as race1, open('Characteristics/class.txt', 'r') as class1,
-          open('Characteristics/name.txt', 'r') as name1, open('Characteristics/ability-scores.txt', 'r') as stats1):
+          open('Characteristics/name.txt', 'r') as name1, open('Characteristics/ability-scores.txt', 'r') as stats1,
+          open('Characteristics/traits.txt', 'r') as traits1):
         race = race1.read()
         class_ = class1.read()
         name = name1.read()
         stats = {}
+        traits = traits1.read()
         for stat in stats1:
             stat_list = stat.strip().split(':')
             stats[stat_list[0]] = stat_list[1]
 
-    return render_template('character.html', race=race, class_=class_, name=name, stats=stats)
+    return render_template('character.html', race=race, class_=class_, name=name, stats=stats, traits=traits)

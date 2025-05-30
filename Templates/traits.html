@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <div class="traits-box">
+            {% if traits %}
+            <span class="traits-span">{{ traits }}</span>
+            {% else %}
+            <span id="traits-intro" class="traits-intro">Summon your character’s personality traits by pressing the button below</span>
+            {% endif %}
+        </div>
+
+        <form class="traits-button-position" action="/generate-traits" method="post">
+          <button class="traits-button" type="submit">Conjure Traits</button>
+        </form>
+
+          <form action="/save-traits" method="post" onsubmit="handleNextClick(event)">
+            <button class="next-button" type="submit" >Go Forth</button>
+          </form>
+
+        <div class="back-button">
+            <a href="/stats">Go Back</a>
+        </div>
+
+        <div class="start-over">
+          <a onclick="confirm_start_over()" >Start Over</a>
+         <script>
+          function confirm_start_over() {
+            let text = "Are you sure you want to start over?\nAll your previous selections will be lost."
+            if (confirm(text)) {
+              window.location.href = "/";
+            }
+          }
+          function handleNextClick(event) {
+            const traitsPresent = "{{ traits }}" !== "";
+            if (!traitsPresent) {
+              event.preventDefault();
+              alert("Please generate traits first before proceeding.");
+            }
+          }
+         </script>
+        </div>
+
+{% endblock %}

@@ -452,13 +452,13 @@ h1 {
 }
 
 .character-sheet {
-    max-width: 600px;
+    max-width: 750px;
     height: 390px;
     margin: auto;
     background: #F8EBCA;
     font-family: "GothicByte";
     font-weight: 500;
-    font-size: 28px;
+    font-size: 24px;
     letter-spacing: 0;
     color: black;
     padding: 10px 30px;
@@ -471,7 +471,7 @@ h1 {
 .stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 40px;
     padding: 15px 0;
 }
 
@@ -532,4 +532,73 @@ h2 {
 
 .assign-button:active {
   transform: translateY(4px);
+}
+
+
+.traits-box {
+  width: 750px;
+  height: 200px;
+  margin: auto;
+  display: table;
+  padding: 10px;
+  text-align: center;
+  font-family: "GothicByte";
+  font-weight: 500;
+  letter-spacing: 0;
+  color: black;
+  border-radius:15px;
+  border: 3px solid;
+  border-color: #000000;
+  background: #F8EBCA;
+  margin-bottom: 15px;
+  margin-top: 20px;
+}
+.traits-span {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 64px;
+}
+
+.traits-intro {
+  font-size: 40px;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.traits-button-position {
+  margin: auto;
+  width: 320px;
+  height: 75px;
+}
+
+.traits-button {
+  width: 320px;
+  height: 75px;
+  padding: 15px 25px;
+  font-family: "GothicByte", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #9CACB4;
+  border-radius: 15px;
+  border: 2px solid;
+  border-color: #000000;
+  border-radius: 15px;
+  box-shadow: 0 9px #666;
+}
+
+.traits-button:hover {
+  background-color: #586D78
+}
+
+.traits-button:active {
+  background-color: #586D78;
+  box-shadow: 0 5px #404040;
+  transform: translateY(4px);
+  color: #000000
 }
